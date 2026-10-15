@@ -1,0 +1,220 @@
+/* ============================================================
+   详情弹窗
+   ============================================================ */
+.mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 38, 31, 0.4);
+  display: none;
+  z-index: 100;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 44px 16px;
+}
+.mask.show {
+  display: flex;
+}
+.modal {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  max-width: 600px;
+  width: 100%;
+  padding: 30px 34px;
+  position: relative;
+}
+.modal .close {
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  color: var(--grey);
+  cursor: pointer;
+  line-height: 1;
+}
+.modal .close:hover {
+  color: var(--zhu);
+}
+.m-title {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: "Songti SC", "STSong", serif;
+  letter-spacing: 1px;
+}
+.m-meta {
+  color: var(--grey);
+  font-size: 13px;
+  margin: 4px 0 18px;
+}
+
+/* 标签/风格：〔小说〕〔文学〕——沿用列表行的写法，但字大一号 */
+.m-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+.mtag {
+  font-size: 13px;
+  color: var(--ink);
+}
+.mtag::before {
+  content: "〔";
+  color: var(--zhu);
+}
+.mtag::after {
+  content: "〕";
+  color: var(--zhu);
+}
+.m-stats {
+  display: flex;
+  gap: 30px;
+  align-items: baseline;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.m-stats .big {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--zhu);
+  font-family: Georgia, serif;
+}
+.m-stats .cell b {
+  font-size: 17px;
+  font-family: Georgia, serif;
+  color: var(--ink);
+}
+.m-stats .cell span {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+/* 评分分布 */
+.dist {
+  margin: 14px 0 4px;
+}
+.dist .row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--grey);
+  margin: 4px 0;
+}
+.dist .row span:first-child {
+  width: 26px;
+  text-align: right;
+  flex: none;
+}
+.dist .bar {
+  flex: 1;
+  height: 7px;
+  background: var(--paper2);
+  overflow: hidden;
+}
+.dist .bar i {
+  display: block;
+  height: 100%;
+  background: var(--zhu);
+  opacity: 0.75;
+}
+.dist .row span:last-child {
+  width: 34px;
+  flex: none;
+  font-family: Georgia, serif;
+}
+
+.m-desc {
+  font-size: 14.5px;
+  color: #41443b;
+  margin: 18px 0 4px;
+  font-family: "Songti SC", "STSong", serif;
+  line-height: 1.9;
+}
+
+/* 原文摘录：朱批样式——左侧一道朱红竖线，宋体排印，页码引用作注脚 */
+.m-quotes {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.m-quotes h4 {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.m-quotes h4 span {
+  font-weight: 400;
+  color: #a0a297;
+  font-size: 11px;
+  letter-spacing: 0;
+  margin-left: 10px;
+}
+.m-quote {
+  border-left: 2px solid var(--zhu);
+  padding: 2px 0 2px 14px;
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  line-height: 2;
+  color: #3a3d34;
+  font-family: "Songti SC", "STSong", serif;
+}
+.m-quote footer {
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--grey);
+  font-family: -apple-system, "PingFang SC", sans-serif;
+  letter-spacing: 0;
+}
+.m-quote footer::before {
+  content: "—— ";
+  color: var(--zhu);
+}
+
+/* 相关推荐 */
+.m-rel {
+  margin-top: 20px;
+}
+.m-rel h4 {
+  font-size: 13px;
+  color: var(--grey);
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.m-rel .rel-list {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.rel-item {
+  cursor: pointer;
+  font-size: 13.5px;
+  padding: 2px 0;
+}
+.rel-item b {
+  font-family: "Songti SC", "STSong", serif;
+  font-weight: 600;
+}
+.rel-item:hover b {
+  color: var(--zhu);
+}
+.rel-item span {
+  color: var(--zhu);
+  font-family: Georgia, serif;
+  margin-left: 6px;
+  font-size: 12.5px;
+}
+.m-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--zhu);
+}
+.m-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

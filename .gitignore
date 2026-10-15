@@ -1,0 +1,19 @@
+# 抓取数据（体积大，由本地爬虫生成，不入版本库）
+data/*
+!data/comic_rules.json
+web/books_data.json
+
+# 编辑备份
+web/index.html.bak-*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 日志与锁文件
+*.log
+*.lock
+
+# macOS
+.DS_Store

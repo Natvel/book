@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="CmKY3ptPiz6BYV2c3gU0KV">
+<head data-page-node-id="g5aG1HCtgLxQACDO6NSRk7">
+<meta charset="UTF-8" data-page-node-id="nUzVAgvOBbIpJgpHMN7GQd">
+<meta name="viewport" content="width=device-width, initial-scale=1" data-page-node-id="J6deivtWmzXTxTeIc9qsGT">
+<title>万卷挑一 · 按好书指数挑书</title>
+<meta name="description" content="从书海里筛出真正被上万人读过并说好的书，按贝叶斯加权的好书指数排序。" data-page-node-id="chP86AYV0nRl8TlLklpIVf">
+<link rel="stylesheet" href="css/base.css" data-page-node-id="EbEHsDreqHHddxyMoaINxk">
+<link rel="stylesheet" href="css/layout.css" data-page-node-id="13ar1HsSB1Z61yFfDMGnLs">
+<link rel="stylesheet" href="css/modal.css" data-page-node-id="5H9Ao5UxdHXK2TYXGAdICX">
+</head>
+<body data-page-node-id="qORV0BMUOHkgcjV5ZGFkOF">
+
+<div class="wrap" data-page-node-id="QiRm9sqiLN66xpW6tq3mGB">
+
+  <header data-page-node-id="7ZsUhrT7GDHpMYdpYhDnQK">
+    <div class="masthead" data-page-node-id="lPKIZxswBUutpEjRD5Vfaj">
+      <div data-page-node-id="qhlTFsYxEQ96EdTewTZQEk">
+        <h1 class="title serif" data-page-node-id="H8KsVNP89jZrDWh0x4jnji">万卷挑一</h1>
+        <p class="tagline" data-page-node-id="rI2YMuuPQse6TnQgVJokV9">从书海里筛出真正被上万人读过并说好的书。按好书指数排，不按裸评分。</p>
+      </div>
+      <div class="seal" style="margin-left:auto" data-page-node-id="x5vGOHOikf5w0NqhVWDYkv">好书</div>
+    </div>
+
+    <nav class="topnav" data-page-node-id="1ZIpUZlf95uSnFAcaOiQ3Q">
+      <button type="button" data-nav="list" class="on" data-page-node-id="XniukDHvFBPKOo6QCKE7q2">书目</button>
+      <button type="button" data-nav="radar" data-page-node-id="VOQczX7A4cErsCDUlQ7sq6">新书雷达</button>
+    </nav>
+
+    <div class="stats-line" id="statsLine" data-page-node-id="qDXkcE9lT5adFPnNxCFKcq">正在载入书目…</div>
+  </header>
+
+  <div class="searchbar" data-page-node-id="ToX4dKdanA1pmpgadmQQnE">
+    <input id="q" type="search" placeholder="书名、作者或标签" aria-label="搜索书目" data-page-node-id="LkBXT9t3eCJrYGVZSOjtp4">
+    <button type="button" id="searchBtn" data-page-node-id="biVeNBTr85CqpyJeeKwZXc">搜索</button>
+  </div>
+
+  <!-- ===== 视图一：书目（主榜单） ===== -->
+  <div id="listView" data-page-node-id="LstViewWanJuan0001">
+
+    <div class="filter" data-page-node-id="3NwY7zUcWIpgnCtQ0C1DSC">
+    <div class="frow" data-page-node-id="FHcJcYECUeyjnCAvoHcwyB">
+      <span class="lab" data-page-node-id="tAnpGdqRy3YF5bajmCAohK">最低分</span>
+      <input type="range" id="minScoreRange" min="0" max="10" step="0.1" value="8.5" aria-label="最低分滑块" data-page-node-id="mGBXs87iBy4NiaWIgcIOd9">
+      <input class="num score-num" id="minScore" inputmode="decimal" title="也可直接输入数字" aria-label="最低分" data-page-node-id="C5peAy0B9YygJIDTwTAn8Q">
+      <span class="lab" style="margin-left:6px" data-page-node-id="zs2H17swFurhyWzFOtD0LW">最少评价</span>
+      <input class="num" id="minVotes" inputmode="numeric" style="width:60px" aria-label="最少评价人数" data-page-node-id="X3UWPJhjHju32XE3704J6J">
+      <span class="lab" style="margin-left:6px" data-page-node-id="e1BPPZQzNxsI5YQIEWt4v1">年份</span>
+      <input class="yr" id="yFrom" placeholder="起" inputmode="numeric" aria-label="年份起" data-page-node-id="fhISIjg5Zw8LLBM0bFlVh0">
+      <span class="lab" data-page-node-id="Uu8qZLJvSN99lMYKFQa9zN">至</span>
+      <input class="yr" id="yTo" placeholder="止" inputmode="numeric" aria-label="年份止" data-page-node-id="wE8DPZBzqvBc7mtCJaJnc4">
+      <span class="lab" style="margin-left:4px" data-page-node-id="LNCOIHCcITxEg5H2GMZT51">排除</span>
+      <input class="tag-ex" id="exclude" placeholder="如：漫画" style="width:80px" aria-label="排除标签" data-page-node-id="cm4603o3vRzqwq3EvEaVAQ">
+      <label class="fcheck" style="margin-left:6px" data-page-node-id="16mXw0eJYwsRrW5Dj8PeRO"><input type="checkbox" id="merge" checked data-page-node-id="Vx7fVI5vFMEz0DZAFzKLzS"> 合并版本</label>
+      <label class="fcheck" data-page-node-id="xGpYieWUmywHjQS8DrMt3P"><input type="checkbox" id="comic" data-page-node-id="ApAYBiYEteRXPDAvGU8OP8"> 含漫画绘本</label>
+      <button id="clearBtn" class="reset" type="button" data-page-node-id="S8Vdmn0QY9cZpEOIEAq4Zc">恢复默认</button>
+    </div>
+  </div>
+
+  <div id="tagChips" data-page-node-id="VwWhWkBQZK8LLonJK78SVP"></div>
+
+  <div class="sortbar" id="sortbar" data-page-node-id="slVaeHmpUEjCsYKjpQP3d3">
+    <button type="button" data-sort="idx" class="on" data-page-node-id="BP0FT7RRIqHLQudEVaM2VK">好书指数</button>
+    <button type="button" data-sort="score" data-page-node-id="0w7CTvEwnqwqJOEJxRH2I2">评分</button>
+    <button type="button" data-sort="votes" data-page-node-id="6E0yh18bVRTVkAXaK8cF96">评价人数</button>
+    <button type="button" data-sort="new" data-page-node-id="vd93nFL2E3qsAGmk4svjKn">最新</button>
+    <button type="button" data-sort="old" data-page-node-id="Vo4iw1ZPjppRCX60Z6LCqV">最早</button>
+    <span class="result-meta" id="resultMeta" data-page-node-id="bCpCN3Cn2ns5RLFGpHOsMa"></span>
+  </div>
+
+  <div class="toc" id="list" data-page-node-id="5zjWcfh2Z2lwzhIkWg8lpg"></div>
+  <div class="pager" id="pager" data-page-node-id="1BGsS1M7bpOatv259Ipgqv"></div>
+
+  </div><!-- /#listView -->
+
+  <!-- ===== 视图二：新书雷达（数据来自豆瓣月度接口） ===== -->
+  <section id="radar" hidden data-page-node-id="RadarSectWanJuan01">
+    <div class="radar-bar">
+      <span class="rmodes" id="rModes"></span>
+      <span class="rsep"></span>
+      <span class="lab" id="rMonthLab">月份</span>
+      <span class="rmonths" id="rMonths"></span>
+      <span class="lab" id="rVotesLab" style="margin-left:12px">评价 ≥</span>
+      <input class="num" id="rMinVotes" inputmode="numeric" style="width:56px" value="30" aria-label="最低评价人数">
+      <button id="rReset" class="reset" type="button">恢复默认</button>
+    </div>
+
+    <div class="radar-meta" id="radarMeta"></div>
+
+    <div class="radar-note" id="radarNote"></div>
+
+    <div class="toc" id="radarList"></div>
+  </section>
+
+</div>
+
+<!-- 详情 -->
+<div class="mask" id="mask" data-page-node-id="DtqnWjcUXoEVxVk2DrM0IK">
+  <div class="modal" data-page-node-id="gpBmm4zqwdhrCFWNcMFHEy">
+    <button class="close" id="modalClose" type="button" aria-label="关闭" data-page-node-id="hR3NVofp5oU5uIbZbTFcuW">×</button>
+    <div id="modalBody" data-page-node-id="MTehRFhqqqq86t4UIvyN4m"></div>
+  </div>
+</div>
+
+<!-- 书海星空已于 2026-10-07 移除（用户反馈用不上），保留视图占位的是「新书雷达」 -->
+
+<footer class="wrap" data-page-node-id="R0729FZ7HLk5VSFSesBwbp">
+  好书指数＝v/(v+m)×评分＋m/(v+m)×C，其中 m＝1000，C≈8.05<br data-page-node-id="gJZUBHDGxDxLVD8hAp36C9">
+  数据来自豆瓣读书公开页面，仅供个人使用，与豆瓣无关联
+</footer>
+
+<noscript data-page-node-id="4GD5WwTDpr5xuUq9wurqJJ">
+  <div class="boot-error" data-page-node-id="bR5H6moU3ehk3Zizk0IROk">
+    <h1 data-page-node-id="IMJbjyY9HzVyWgsuODhC4O">万卷挑一</h1>
+    <p data-page-node-id="vWr4u0nEwoMQyorDEdbNpX">这个页面需要 JavaScript 才能筛选和排序，请在浏览器里启用后重试。</p>
+  </div>
+</noscript>
+
+<script>
+/* 直接双击打开（file://）时，浏览器会因为安全策略拒绝加载 ES Module，
+   页面会是一片空白且毫无提示。这里提前给个明确的说法。 */
+if (location.protocol === "file:") {
+  var tip = document.createElement("div");
+  tip.className = "boot-error";
+  tip.innerHTML =
+    "<h1>万卷挑一</h1>" +
+    "<p>页面用的是原生 ES Module（零构建），浏览器不允许在 <code>file://</code> 协议下加载模块，" +
+    "所以直接双击打不开。</p>" +
+    "<p>在项目目录下执行 <code>python3 serve.py</code>，" +
+    "然后访问 <code>http://localhost:8000</code> 即可。</p>";
+  document.body.insertBefore(tip, document.body.firstChild);
+  document.querySelector(".wrap").style.display = "none";
+}
+</script>
+
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

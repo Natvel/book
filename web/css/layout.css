@@ -1,0 +1,591 @@
+/* ============================================================
+   版式层：页首 / 搜索 / 筛选 / 排序 / 目录式列表 / 分页
+   ============================================================ */
+
+/* ===== 页首 ===== */
+header {
+  padding: 52px 0 0;
+}
+.masthead {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.tagline {
+  margin-top: 10px;
+  color: var(--grey);
+  font-size: 13px;
+}
+.seal {
+  width: 52px;
+  height: 52px;
+  background: var(--zhu);
+  color: #f6f2e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 2px;
+  flex: none;
+  box-shadow: inset 0 0 0 2px rgba(246, 242, 232, 0.35), inset 0 0 0 3px var(--zhu);
+  writing-mode: vertical-rl;
+}
+.topnav {
+  display: flex;
+  gap: 26px;
+  margin-top: 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.topnav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--grey);
+  padding: 0 0 3px;
+  font-family: inherit;
+  letter-spacing: 1px;
+}
+.topnav button:hover {
+  color: var(--ink);
+}
+.topnav button.on {
+  color: var(--zhu);
+  box-shadow: inset 0 -2px 0 var(--zhu);
+}
+.stats-line {
+  font-size: 12px;
+  color: var(--grey);
+  padding-top: 8px;
+}
+
+/* ===== 搜索 ===== */
+.searchbar {
+  display: flex;
+  gap: 0;
+  margin: 26px 0 0;
+  max-width: 440px;
+}
+.searchbar input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 7px 2px;
+  font-size: 14px;
+  outline: none;
+  color: var(--ink);
+  font-family: inherit;
+}
+.searchbar input:focus {
+  border-bottom-color: var(--ink);
+}
+.searchbar input::placeholder {
+  color: #a8a89e;
+}
+.searchbar button {
+  border: none;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0 20px;
+  font-size: 13.5px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 3px;
+  text-indent: 3px;
+}
+.searchbar button:hover {
+  background: var(--zhu);
+}
+
+/* ===== 筛选行（全部挤在一行，窄屏自动折行） ===== */
+.filter {
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.frow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.frow .lab {
+  font-size: 13px;
+  color: var(--grey);
+  flex: none;
+}
+.opt {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--grey);
+  padding: 0 1px 1px;
+  font-family: inherit;
+}
+.opt:hover {
+  color: var(--ink);
+}
+.opt.on {
+  color: var(--zhu);
+  font-weight: 700;
+  box-shadow: inset 0 -1px 0 var(--zhu);
+}
+.yr {
+  width: 48px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 1px 2px;
+  font-size: 13px;
+  outline: none;
+  text-align: center;
+  color: var(--ink);
+  font-family: inherit;
+}
+.yr:focus {
+  border-bottom-color: var(--zhu);
+}
+.num {
+  width: 56px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 1px 2px;
+  font-size: 13px;
+  outline: none;
+  text-align: center;
+  color: var(--ink);
+  font-family: inherit;
+}
+.num:focus {
+  border-bottom-color: var(--zhu);
+}
+.score-num {
+  width: 40px;
+  border-bottom: none;
+  color: var(--zhu);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+}
+.score-num:focus {
+  border-bottom: 1px solid var(--zhu);
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 84px;
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 1px;
+  background: #c3c1b6;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 14px;
+  background: var(--zhu);
+  margin-top: -7px;
+  border: none;
+}
+input[type="range"]::-moz-range-track {
+  height: 1px;
+  background: #c3c1b6;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 14px;
+  border: none;
+  border-radius: 0;
+  background: var(--zhu);
+}
+.tag-ex {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 1px 2px;
+  font-size: 13px;
+  width: 150px;
+  outline: none;
+  color: var(--ink);
+  font-family: inherit;
+}
+.tag-ex:focus {
+  border-bottom-color: var(--zhu);
+}
+.fcheck {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--grey);
+  cursor: pointer;
+}
+.fcheck input {
+  accent-color: var(--zhu);
+}
+/* 恢复默认：朱批批注式的红字，不描边、不加框 */
+.reset {
+  background: none;
+  border: none;
+  color: var(--zhu);
+  cursor: pointer;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-indent: 2px; /* 抵消末字后的字间距，让四字在自身宽度里居中 */
+  padding: 0;
+  line-height: 1.4;
+  margin-left: auto;
+  flex: none;
+}
+.reset:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.linkbtn {
+  background: none;
+  border: none;
+  color: var(--zhu);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+.linkbtn:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===== 标签快捷排除 ===== */
+#tagChips {
+  margin: 14px 0 0;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+#tagChips .opt {
+  font-size: 13px;
+}
+#tagChips .cnt {
+  font-size: 11px;
+  color: #a8a89e;
+  margin-left: 1px;
+}
+/* 「全部 N 个标签」展开开关：和标签同款但灰色，示意是操作不是标签 */
+#tagChips .chip-toggle {
+  color: var(--grey);
+}
+#tagChips .chip-toggle:hover {
+  color: var(--ink);
+}
+
+/* ===== 排序 ===== */
+.sortbar {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  margin: 26px 0 6px;
+  flex-wrap: wrap;
+}
+.sortbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--grey);
+  padding: 0 1px 1px;
+  font-family: inherit;
+}
+.sortbar button:hover {
+  color: var(--ink);
+}
+.sortbar button.on {
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 var(--zhu);
+}
+.result-meta {
+  font-size: 12px;
+  color: var(--grey);
+  margin-left: auto;
+}
+.result-meta.on {
+  color: var(--zhu);
+}
+.result-meta.flash {
+  animation: metaFlash 0.42s ease-out;
+}
+@keyframes metaFlash {
+  0% {
+    background: rgba(176, 52, 44, 0.16);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+/* ===== 目录式列表：书名 + 点线 + 红色分数 ===== */
+.toc {
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.entry {
+  padding: 16px 2px 14px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+.entry:hover .bt {
+  color: var(--zhu);
+}
+.row1 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.rk {
+  font-size: 13px;
+  color: #a8a89e;
+  font-family: Georgia, serif;
+  flex: none;
+  width: 26px;
+  text-align: right;
+}
+.rk.top {
+  color: var(--zhu);
+  font-weight: 700;
+}
+.bt {
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.leader {
+  flex: 1;
+  border-bottom: 1.5px dotted #b9b7ab;
+  transform: translateY(-4px);
+  min-width: 24px;
+}
+.sc {
+  font-family: Georgia, serif;
+  font-size: 19px;
+  color: var(--zhu);
+  font-weight: 700;
+  flex: none;
+}
+.row2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  margin-top: 3px;
+  padding-left: 36px;
+  flex-wrap: wrap;
+}
+.row2 .m {
+  font-size: 12.5px;
+  color: var(--grey);
+}
+.row2 .m b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.row2 .gap {
+  width: 14px;
+  flex: none;
+}
+.row2 .zhi {
+  margin-left: auto;
+  font-size: 12.5px;
+  color: var(--grey);
+}
+.row2 .zhi b {
+  font-family: Georgia, serif;
+  color: var(--ink);
+  font-weight: 600;
+}
+.tags {
+  margin-top: 5px;
+  padding-left: 36px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tg {
+  font-size: 11.5px;
+  color: var(--grey);
+}
+.tg::before {
+  content: "〔";
+}
+.tg::after {
+  content: "〕";
+}
+.tg-alt {
+  color: var(--zhu);
+}
+
+/* ===== 分页 ===== */
+.pager {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 34px 0 0;
+  flex-wrap: wrap;
+}
+.pager button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--grey);
+  padding: 2px 4px;
+  font-family: Georgia, serif;
+}
+.pager button:hover:not(:disabled) {
+  color: var(--zhu);
+}
+.pager button.on {
+  color: var(--zhu);
+  font-weight: 700;
+  box-shadow: inset 0 -2px 0 var(--zhu);
+}
+.pager button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.empty {
+  text-align: center;
+  color: var(--grey);
+  padding: 70px 0;
+  font-size: 14px;
+}
+
+/* ===== 新书雷达 ===== */
+#radar {
+  margin-top: 24px;
+}
+/* hidden 属性默认可能被更具体的 display 规则盖掉，这里显式声明 */
+#radar[hidden],
+#listView[hidden] {
+  display: none;
+}
+#rVotesLab[hidden],
+#rMinVotes[hidden] {
+  display: none;
+}
+.radar-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.radar-bar .lab {
+  font-size: 13px;
+  color: var(--grey);
+  flex: none;
+}
+/* 数据源切换：左边一组，用一条竖线和月份区分开 */
+.rmodes,
+.rmonths {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.rmodes .opt {
+  font-size: 13.5px;
+}
+.rmonths .opt {
+  font-size: 13px;
+  font-family: Georgia, serif;
+}
+.rsep {
+  width: 1px;
+  height: 13px;
+  background: var(--line);
+  margin: 0 8px;
+  flex: none;
+}
+.radar-meta {
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 12px;
+}
+.radar-meta.flash {
+  animation: metaFlash 0.42s ease-out;
+}
+.radar-note {
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 1.9;
+  color: #9a9c91;
+  max-width: 640px;
+}
+.radar-note b {
+  font-family: Georgia, serif;
+  color: var(--grey);
+}
+/* 雷达里的出版年比主榜重要，用墨色提一档 */
+.row2 .m.ry {
+  color: var(--ink);
+}
+/* 名次涨跌徽章：国内看盘习惯——升红降绿 */
+.tr {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  flex: none;
+}
+.tr.up {
+  color: var(--zhu);
+}
+.tr.down {
+  color: #4a7c59;
+}
+.tr.new {
+  color: var(--grey);
+  font-size: 11.5px;
+}
+.radar-more {
+  padding: 18px 2px;
+  font-size: 12px;
+  color: var(--grey);
+  text-align: center;
+}
+
+/* ===== 窄屏 ===== */
+@media (max-width: 620px) {
+  .title {
+    font-size: 34px;
+    letter-spacing: 4px;
+  }
+  .reset {
+    margin-left: 0;
+  }
+}
